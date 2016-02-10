@@ -39,7 +39,7 @@ $(URTH_COMP_LINKS): | node_modules/bower $(URTH_SRC_DIRS)
 	@$(foreach dir, $(URTH_SRC_DIRS), cd $(abspath $(dir)) && $(NPM_BIN_DIR)/bower link;)
 	@$(foreach name, $(URTH_DIRS), $(NPM_BIN_DIR)/bower link $(name);)
 
-init: node_modules dev_image scala_build_image
+init: node_modules ext/ipywidgets dev_image scala_build_image
 
 node_modules: package.json
 	@npm install
@@ -48,6 +48,17 @@ node_modules/bower: node_modules
 
 bower_components: node_modules/bower bower.json
 	@npm run bower -- install
+
+ext/ipywidgets:
+	-npm uninstall --quiet jupyter-js-widgets
+	-rm -rf ext/ipywidgets
+	@mkdir -p ext ; \
+		cd ext ; \
+		git clone https://github.com/ipython/ipywidgets.git ; \
+		cd ipywidgets ; \
+		git checkout 38218351c9dc4196419f6c8f0129df7d0f4cd24c ; \
+		cd ipywidgets ; \
+		npm install --quiet
 
 dev_image:
 	@-docker rm -f bower-build

@@ -62,6 +62,7 @@ target/
 bower_components
 *.pyc
 *.log
+ext/
 node_modules/
 npm-debug.*
 .watch
