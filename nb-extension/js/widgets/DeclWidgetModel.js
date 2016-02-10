@@ -12,6 +12,10 @@ define([
 
     var DeclWidgetModel = function(widget_manager, model_id, comm) {
         Widgets.WidgetModel.apply(this, arguments);
+        // WidgetModel expects widgets' state to be set from kernel and won't
+        // set `_first_state` to false until that happens. But DeclWidgets
+        // are different: we do initial setup on client and then notify kernel.
+        this._first_state = false;
     };
 
     DeclWidgetModel.prototype = Object.create(Widgets.WidgetModel.prototype);
