@@ -24,7 +24,7 @@ define([
      * Making request_state a noop to avoid requiring this handshake to take place to create model.
      */
     DeclWidgetModel.prototype.request_state = function(callbacks) {
-        console.trace( "Empty implementation of request_state()")
+        console.trace( "Empty implementation of request_state()");
         return Promise.resolve(this);
     };
 
