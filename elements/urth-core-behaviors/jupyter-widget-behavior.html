@@ -49,7 +49,8 @@ This behavior is used to encapsulate some of the services needed for ipywidgets.
                     {
                         model_name: 'DeclWidgetModel',
                         widget_class: this.kernelClass
-                    }
+                    },
+                    {} // XXX Is this correct? New api takes `serialized_state` arg for "attributes"
                 ).then(function(model) {
                         console.log('Model creation successful!', model);
                         this.__modelChangeCallback = this._onModelChange.bind(this);
