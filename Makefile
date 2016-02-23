@@ -50,7 +50,7 @@ bower_components: node_modules/bower bower.json
 	@npm run bower
 
 ext/ipywidgets:
-	@-npm uninstall --quiet jupyter-js-widgets
+	@-test -d node_modules && npm uninstall --quiet jupyter-js-widgets
 	@-rm -rf $@
 	@mkdir -p $@ ; \
 		git clone https://github.com/ipython/ipywidgets.git $@ ; \
