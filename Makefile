@@ -39,7 +39,7 @@ $(URTH_COMP_LINKS): | node_modules/bower $(URTH_SRC_DIRS)
 	@$(foreach dir, $(URTH_SRC_DIRS), cd $(abspath $(dir)) && $(NPM_BIN_DIR)/bower link;)
 	@$(foreach name, $(URTH_DIRS), $(NPM_BIN_DIR)/bower link $(name);)
 
-init: node_modules ext/ipywidgets dev_image scala_build_image
+init: ext/ipywidgets node_modules dev_image scala_build_image
 
 node_modules: package.json
 	@npm install
