@@ -56,7 +56,7 @@ ext/ipywidgets:
 		cd ext ; \
 		git clone https://github.com/ipython/ipywidgets.git ; \
 		cd ipywidgets ; \
-		git checkout 99e60fcffc3950c5d4c53a3854b6ac796d942180 ; \
+		git checkout 851fd648195be1f42cab2560600c3b629bbe3330 ; \
 		cd jupyter-js-widgets ; \
 		npm install --quiet
 
