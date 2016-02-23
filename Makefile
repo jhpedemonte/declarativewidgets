@@ -47,7 +47,7 @@ node_modules: package.json
 node_modules/bower: node_modules
 
 bower_components: node_modules/bower bower.json
-	@npm run bower -- install
+	@npm run bower
 
 ext/ipywidgets:
 	@-npm uninstall --quiet jupyter-js-widgets
@@ -84,7 +84,7 @@ clean: clean-dist
 	@-rm -rf *.egg-info
 	@-rm -rf __pycache__ */__pycache__ */*/__pycache__
 	@-find . -name '*.pyc' -exec rm -fv {} \;
-	@-rm -rf bower_components node_modules
+	@-rm -rf bower_components node_modules ext/ipywidgets
 
 clean-dist:
 	@-rm -rf dist
@@ -156,7 +156,7 @@ dist/docs/bower_components: node_modules etc/docs/bower.json
 	@echo 'Installing documentation dependencies'
 	@mkdir -p dist/docs
 	@cp etc/docs/bower.json dist/docs/bower.json
-	@npm run docsbower -- install
+	@npm run docsbower
 
 dist/docs/site: node_modules ${shell find etc/docs/site}
 	@echo 'Moving static doc site content'

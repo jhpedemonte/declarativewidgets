@@ -26,8 +26,8 @@
   },
   "config": {},
   "scripts": {
-    "bower": "bower",
-    "docsbower": "cd dist/docs && bower",
+    "bower": "bower install",
+    "docsbower": "cd dist/docs && bower install",
     "http-server": "http-server",
     "polybuild": "polybuild",
     "test": "wct elements/*/test",
