@@ -52,10 +52,9 @@ bower_components: node_modules/bower bower.json
 ext/ipywidgets:
 	@-npm uninstall --quiet jupyter-js-widgets
 	@-rm -rf $@
-	@mkdir -p ext ; \
-		cd ext ; \
-		git clone https://github.com/ipython/ipywidgets.git ; \
-		cd ipywidgets ; \
+	@mkdir -p $@ ; \
+		git clone https://github.com/ipython/ipywidgets.git $@ ; \
+		cd $@ ; \
 		git checkout 851fd648195be1f42cab2560600c3b629bbe3330 ; \
 		cd jupyter-js-widgets ; \
 		npm install --quiet
